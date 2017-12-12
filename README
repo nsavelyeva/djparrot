@@ -1,0 +1,47 @@
+DJ Parrot is a very small web application which can (or cannot) help you to learn foreign languages
+by listening and repeating words aloud, just like parrots do :-)
+The application keeps all the words in the database on the remote server,
+and speech synthesis happens locally on the client (your browser).
+
+Why:
+ * I had the aim of deepening my knowledge and improving my practical skills.
+ * I desired to study Dutch language and have someone/something reading the words for me.
+ * I wanted to compare three popular Python-based web frameworks - Flask, Bottle and Django.
+ * I got inspired by simplicity of Bottle framework and availabilty of speech synthesis in browsers.
+
+Tools:
+ * Back-end: Bottle microframework + Bottle Cork plugin + argparse
+ * Database: SQLite 3 (which is inbuilt in Python)
+ * Frontend: Bootstrap 4 + Font Awesome + JavaScript & jQuery + SpeechSynthesis API
+
+Attention:
+ * The application has its limitations:
+    - if a language is not supported by a browser,
+      then the default language is applied and the word will be pronounced wrong (letter by letter);
+    - the database of words was created in a semi-automated way,
+      therefore you can find incorrect words categorization and even translation.
+ * The app definitely has lots of bugs because I was focused in exploring dev tools and not in testing to make the app perfect.
+ * Hence, repeat words after the Parrot, but be careful - parrots are not that smart!
+   I take no responsibility if you learn foreign words incorrectly and finally speak some nonexisting language.
+ * In the case of Emergency, please stay calm, go to github and open an issue, or contact me at LinkedIn:
+ https://www.linkedin.com/in/natallia-savelyeva-15407a12a/.
+
+Usage:
+ * Just launch run.py and open http://127.0.0.1 in your browser. Try "run.py -h" to see options.
+ * Start your work - learn words at http://127.0.0.1/words or listen to a story at http://127.0.0.1/story.
+
+Features:
+ * Authentication.
+ * Features for all users:
+    - search for a word in the database;
+    - collect words from categories and read them in several languages with optional repeats;
+    - exclude words from being read;
+    - load voices available for the required language; 
+    - read a full-text story using the desired language;
+    - change SpeechSynthesis parameters: voice, volume, rate, pitch; 
+    - statistics: number of unique words, categories and subcategories;
+    - support options to launch DJ Parrot from command line.
+ * Admin features:
+    - init/backup/restore the database;
+    - add a new word into the database;
+    - translate a word into several languages and read the results aloud.
