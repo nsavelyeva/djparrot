@@ -1,6 +1,9 @@
 import os
 import json
-import urllib2
+try:
+    import urllib.parse as url_lib  # Python 3
+except ImportError:
+    import urllib2 as url_lib       # Python 2
 import requests
 import bottle
 from helpers import queries
@@ -42,7 +45,7 @@ def translate():
             for lang in [item[1] for item in languages]:
                 url = 'https://translate.googleapis.com/translate_a/single'
                 url += '?ie=UTF-8&oe=UTF-8&client=gtx'
-                url += '&sl=%s&tl=%s&dt=t&q=%s' % (src_language, lang, urllib2.quote(entry))
+                url += '&sl=%s&tl=%s&dt=t&q=%s' % (src_language, lang, url_lib.quote(entry))
                 response = requests.get(url)
                 if response.status_code == 200:
                     response_text = response.text.encode('ascii', 'xmlcharrefreplace')
